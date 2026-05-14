@@ -1,4 +1,14 @@
+/// Provides country names and their related city, state, or region names.
+///
+/// The data is stored in memory and can be accessed directly through
+/// [countryCityMap] or through the convenience methods [getCountries],
+/// [getCities], and [hasCountry].
 class CountryCityData {
+  /// Maps each supported country name to its available city, state, or region
+  /// names.
+  ///
+  /// Country matching is case-sensitive. Use [getCountries] to inspect the
+  /// exact country names supported by this package.
     static final Map<String, List<String>> countryCityMap = {
     'America': [
     'Alabama',
@@ -633,21 +643,105 @@ class CountryCityData {
   'Puducherry',
 ],
 
-    'Nepal': ['Kathmandu', 'Pokhara'],
-    'Bhutan': ['Thimphu', 'Phuntsholing'],
+    'Nepal': [
+  'Kathmandu',
+  'Pokhara',
+  'Lalitpur',
+  'Bhaktapur',
+  'Biratnagar',
+  'Birgunj',
+  'Butwal',
+  'Bharatpur',
+  'Janakpur',
+  'Dharan',
+  'Hetauda',
+  'Nepalgunj',
+  'Itahari',
+  'Dhangadhi',
+  'Tulsipur',
+  'Ghorahi',
+  'Siddharthanagar',
+  'Birtamod',
+  'Damak',
+  'Rajbiraj',
+  'Siraha',
+  'Lahan',
+  'Gaur',
+  'Kalaiya',
+  'Malangwa',
+  'Baglung',
+  'Kawasoti',
+  'Tansen',
+  'Gorkha',
+  'Bidur',
+  'Dhankuta',
+  'Inaruwa',
+  'Khandbari',
+  'Besisahar',
+  'Putalibazar',
+  'Sandhikharka',
+  'Tikapur',
+  'Lamki Chuha',
+  'Chandrapur',
+  'Barahathawa',
+  'Ilam',
+  'Phidim',
+  'Chainpur',
+  'Manthali',
+  'Jaleshwar',
+  'Gaushala',
+  'Dhading Besi',
+  'Dhulikhel',
+  'Banepa',
+],
+    'Bhutan': [
+  'Thimphu',
+  'Phuntsholing',
+  'Paro',
+  'Punakha',
+  'Wangdue Phodrang',
+  'Jakar (Bumthang)',
+  'Gelephu',
+  'Samtse',
+  'Sarpang',
+  'Trashigang',
+  'Mongar',
+  'Trongsa',
+  'Zhemgang',
+  'Haa',
+  'Lhuentse',
+  'Pemagatshel',
+  'Tashigang',
+  'Tashi Yangtse',
+  'Samdrup Jongkhar',
+  'Dagana',
+  'Chukha',
+  'Dechencholing',
+  'Lungtenphu',
+  'Motithang',
+  'Babesa',
+  'Changangkha',
+  'Khuruthang',
+  'Nganglam',
+],
     
 };
-  /// Get cities/states by country name
+  /// Returns the city, state, or region names available for [country].
+  ///
+  /// Returns an empty list when [country] is not present in [countryCityMap].
   static List<String> getCities(String country) {
     return countryCityMap[country] ?? [];
   }
 
-  /// Get all available countries
+  /// Returns all country names currently available in [countryCityMap].
   static List<String> getCountries() {
     return countryCityMap.keys.toList();
   }
 
-  /// Check if country exists
+  /// Returns whether [country] exists in [countryCityMap].
+  ///
+  /// The lookup is case-sensitive and expects the same spelling returned by
+  /// [getCountries].
   static bool hasCountry(String country) {
     return countryCityMap.containsKey(country);
   }

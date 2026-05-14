@@ -1,15 +1,18 @@
-// import 'package:country_city_kit/country_city_kit.dart';
+import 'package:country_city_kit/country_city_kit.dart';
 
-// void main() {
-//   // Get all countries
-//   final countries = CountryCityData.getCountries();
+void main() {
+  // Fetch all available countries
+  final countries = CountryCityData.getCountries();
+  print('Available Countries:');
+  print(countries);
 
-//   // Get cities of Bangladesh
-//   final bangladeshCities = CountryCityData.getCities('Bangladesh');
+  // Fetch cities of a specific country
+  final cities = CountryCityData.getCities('Bangladesh');
+  print('\nCities of Bangladesh:');
+  print(cities);
 
-//   print('All Countries:');
-//   print(countries);
-
-//   print('\nCities of Bangladesh:');
-//   print(bangladeshCities);
-// }
+  // Check if a country exists
+  print('\nCountry Validation:');
+  print('India exists: ${CountryCityData.hasCountry('India')}');
+  print('Japan exists: ${CountryCityData.hasCountry('Japan')}');
+}
